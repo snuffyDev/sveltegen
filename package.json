@@ -5,7 +5,7 @@
 	"main": "./dist/index.js",
 	"scripts": {
 		"start": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts",
-		"refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
+		"refresh": "shx rm -rf ./node_modules ./package-lock.json && npm install",
 		"build": "tsc && shx rm -rf dist/template && shx cp -r src/template dist"
 	},
 	"bin": {
