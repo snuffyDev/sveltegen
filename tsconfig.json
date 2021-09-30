@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"target": "ES2021",
+		"module": "commonjs",
+		"declaration": true,
+		"sourceMap": true,
+		"outDir": "dist",
+		"rootDir": "src",
+		// "strict": true,
+		"moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
+		"resolveJsonModule": true,
+
+		"types": ["node", "inquirer", "svelte"],
+		"allowSyntheticDefaultImports": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
+		"skipLibCheck": true /* Skip type checking of declaration files. */,
+		"forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
+		"esModuleInterop": true
+	},
+	"exclude": ["node_modules", "dist", "storage"]
+}

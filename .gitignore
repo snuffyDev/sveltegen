@@ -1,0 +1,5 @@
+node_modules
+storage/.verdaccio-db.json
+.cg.json
+.npmrc
+package-lock.json
