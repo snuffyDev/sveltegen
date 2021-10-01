@@ -12,7 +12,7 @@ function Factory(components, config) {
 }
 exports.Factory = Factory;
 exports.CWD = process.cwd();
-exports.CONFIG_NAME = '.cg.json';
+exports.CONFIG_NAME = '.sveltegen.json';
 exports.QUESTIONS = [
     {
         name: 'name',
@@ -32,13 +32,22 @@ exports.QUESTIONS = [
             else
                 return 'The name must start with a capital letter!';
         }
+    },
+    {
+        name: 'lang',
+        type: 'confirm',
+        message: 'Typescript?',
+        // choices: ['Yes', 'No']
+        default: true
+        // default: 'SCSS'
+    },
+    {
+        name: 'style',
+        type: 'confirm',
+        message: 'SCSS?',
+        default: true
+        // choices: ['Yes', 'No']
+        // default: 'SCSS'
     }
-    // {
-    // 	name: 'style',
-    // 	type: 'list',
-    // 	message: 'SCSS or vanilla CSS?',
-    // 	choices: ['SCSS', 'CSS'],
-    // 	default: 'SCSS'
-    // }
 ];
 //# sourceMappingURL=vars.js.map

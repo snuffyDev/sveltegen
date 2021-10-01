@@ -13,7 +13,7 @@ export function Factory(components?: any, config?: any) {
 }
 
 export const CWD = process.cwd()
-export const CONFIG_NAME = '.cg.json'
+export const CONFIG_NAME = '.sveltegen.json'
 export const QUESTIONS: inquirer.QuestionCollection = [
 	{
 		name: 'name',
@@ -28,12 +28,21 @@ export const QUESTIONS: inquirer.QuestionCollection = [
 			if (input && input.charAt(0) == input.charAt(0).toUpperCase()) return true
 			else return 'The name must start with a capital letter!'
 		}
+	},
+	{
+		name: 'lang',
+		type: 'confirm',
+		message: 'Typescript?',
+		// choices: ['Yes', 'No']
+		default: true
+		// default: 'SCSS'
+	},
+	{
+		name: 'style',
+		type: 'confirm',
+		message: 'SCSS?',
+		default: true
+		// choices: ['Yes', 'No']
+		// default: 'SCSS'
 	}
-	// {
-	// 	name: 'style',
-	// 	type: 'list',
-	// 	message: 'SCSS or vanilla CSS?',
-	// 	choices: ['SCSS', 'CSS'],
-	// 	default: 'SCSS'
-	// }
 ]

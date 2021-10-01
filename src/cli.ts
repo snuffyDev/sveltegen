@@ -1,7 +1,8 @@
+import chalk from 'chalk'
 import { Command } from 'commander'
-
 import * as fs from 'fs'
 import * as inquirer from 'inquirer'
+
 import { fn } from './functions'
 import * as vars from './vars'
 
@@ -14,14 +15,14 @@ program.configureHelp({
 // const args = process.argv
 // console.log(args)
 program
-	.name('svgen')
+	.name('sveltegen')
 	.description('Svelte/SvelteKit Component Template Generator')
-	.option('-c, --config', 'Edit the path Svgen will output to')
+	.option('-c, --config', 'Edit the path Sveltegen will output to')
 // .option('-h, --help', 'Show help')
 program.showSuggestionAfterError()
 
 program
-	.addHelpText('beforeAll', 'Svgen CLI\n---------')
+	.addHelpText('beforeAll', 'Sveltegen CLI\n---------')
 	.addHelpText('afterAll', context => {
 		if (context.error) {
 			return '\nUnknown Error'
@@ -32,34 +33,33 @@ program
 program.addHelpText(
 	'after',
 	`
-		Example call:\n  		$ svgen --config`
+		Example call:\n  		$ sveltegen --config`
 )
 program
 	.command('config')
 	.description('Edit the output directory')
 	.action(() => {
 		fn().createConfig()
-	}),
-	program
-		.command('new', { isDefault: true })
-		.description('Generate new component')
-		.action(() => {
-			inquirer
-				.prompt(vars.QUESTIONS)
-				.then(answers => {
-					const COMP_NAME = answers['name']
-					// const COMP_STYLE = answers['style']
-					const TEMPLATE = `${__dirname}/template`
-					// console.log(CONFIG_PATH, CWD)
-					fs.mkdirSync(`${vars.CONFIG_PATH}/${COMP_NAME}`)
-					fn().copyFiles(TEMPLATE, COMP_NAME)
-					console.log(
-						`Created ${COMP_NAME} successfully at ${vars.CONFIG_PATH}/${COMP_NAME}!`
-					)
-				})
-				.catch(error => {
-					console.log('An error has occurred! Error: ' + error)
-				})
-		})
+	})
+program.command('init', { hidden: true, isDefault: true }).action(async () => {
+	console.clear()
+	console.log(
+		`${chalk.bold.white('Sveltegen CLI')}\n${chalk.redBright.italic.underline(
+			'Warning: This CLI is still experimental.\n'
+		)}`
+	)
+	const config = fn().hasConfig()
 
+	if (config) {
+		const hasConfig = fn().createConfig()
+		if (hasConfig) fn().main()
+	} else {
+		fn().main()
+	}
+})
+program
+	.command('new')
+	.description('Generate new component')
+	.action(() => {})
+// inquirer.prompt([{type:'list',choices:['New Component', 'Edit Config']}])
 program.parse(process.argv)

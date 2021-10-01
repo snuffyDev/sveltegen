@@ -1,15 +1,12 @@
 #!/usr/bin/env node
 
+import chalk from 'chalk'
+
 import { fn } from './functions'
+
 import './cli'
 
 async function main() {
-	const config = fn().hasConfig()
-	let _conf
-	if (!config) {
-		_conf = fn()
-			.createConfig()
-			.then(data => data)
-	}
+	// await import('./cli')
 }
 main()

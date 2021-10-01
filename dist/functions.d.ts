@@ -1,6 +1,7 @@
 export declare function fn(): {
-    createConfig: () => Promise<boolean> | Promise<void>;
+    main: () => Promise<void>;
+    createConfig: () => Promise<void>;
     getExistingComponents: () => boolean;
     hasConfig(): boolean;
-    copyFiles(template: any, newPath: any): Promise<void>;
+    copyFiles(template: any, [newPath, style, lang]: [any, any, any]): Promise<void>;
 };
