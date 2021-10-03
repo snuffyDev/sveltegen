@@ -1,12 +1,12 @@
 {
 	"name": "sveltegen",
-	"version": "1.2.6",
+	"version": "1.2.7",
 	"description": "A simple component generator CLI for Svelte/SvelteKit.",
 	"main": "./dist/index.js",
 	"scripts": {
-		"start": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts",
+		"start": "nodemon -I --watch 'src/**/*.ts' --exec ts-node src/index.ts",
 		"refresh": "shx rm -rf ./node_modules ./package-lock.json && npm install",
-		"build": "tsc && shx rm -rf dist/template && shx cp -r src/template dist"
+		"build": "tsc -p . && shx rm -rf dist/templates && shx cp -r src/templates dist"
 	},
 	"bin": {
 		"sveltegen": "./dist/index.js"

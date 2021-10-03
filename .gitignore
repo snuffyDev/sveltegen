@@ -3,3 +3,5 @@ storage/.verdaccio-db.json
 .cg.json
 .npmrc
 package-lock.json
+./.sveltegen.json
+.sveltegen.json
