@@ -1,16 +1,10 @@
-export declare function fn(): {
-    component: () => Promise<void>;
-    route: () => Promise<void>;
-    action: () => Promise<void>;
+declare const _default: {
+    route: (...args: any[]) => void | Promise<void>;
+    component: (...args: any[]) => void | Promise<void>;
+    action: (...args: any[]) => void | Promise<void>;
     createConfig: () => Promise<void>;
     menu: () => void;
     getExistingComponents: () => void;
     hasConfig(): boolean;
-    copyFiles(template: any, [newPath, style, lang, type, file]: [
-        string,
-        boolean,
-        boolean,
-        number,
-        boolean?
-    ]): Promise<void>;
 };
+export default _default;

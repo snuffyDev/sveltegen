@@ -1,1 +1,1 @@
-export { default } from './_name.svelte'
+export { default } from "./_name.svelte";
