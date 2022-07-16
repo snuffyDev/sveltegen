@@ -1,0 +1,40 @@
+{
+	"compilerOptions": {
+		"sourceMap": true,
+		"resolveJsonModule": true,
+		"types": ["node", "sade"],
+		"skipLibCheck": true /* Skip type checking of declaration files. */,
+		"forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
+		"esModuleInterop": true,
+		// "importHelpers": true,
+		"isolatedModules": false,
+
+		"stripInternal": true,
+		"rootDir": ".",
+		"suppressImplicitAnyIndexErrors": true,
+		"baseUrl": ".",
+		"outDir": "dist",
+		"strict": false,
+		"suppressExcessPropertyErrors": false,
+		"removeComments": true,
+		"target": "ESNext",
+		"lib": ["ES2022", "ESNext", "ES2015"],
+		"module": "ES2022",
+		"noPropertyAccessFromIndexSignature": false,
+		"moduleResolution": "Node",
+		"allowSyntheticDefaultImports": true,
+		"strictFunctionTypes": false
+	},
+	// "extends": ".",
+	"include": ["src/**/*"],
+	"exclude": [
+		"node_modules/**",
+		"templates/**",
+		"node_modules",
+		"_src/templatesist",
+		"storage",
+		"dist",
+		".repo",
+		"build.js"
+	]
+}

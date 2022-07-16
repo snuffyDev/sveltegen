@@ -1,0 +1,37 @@
+{
+	"name": "sveltegen",
+	"version": "1.5.0",
+	"description": "A simple component generator CLI for Svelte/SvelteKit.",
+	"main": "./dist/index.mjs",
+	"scripts": {
+		"start": "nodemon -I --watch 'src/**/*.ts' --exec ts-node src/index.ts",
+		"refresh": "shx rm -rf ./node_modules ./package-lock.json && npm install",
+		"build": "shx rm -rf dist && node ./build.mjs && npm run copy",
+		"copy": "shx rm -rf dist/templates && shx cp -r ./templates dist"
+	},
+	"bin": {
+		"sveltegen": "./dist/index.mjs"
+	},
+	"files": [
+		"dist"
+	],
+	"keywords": [
+		"cli",
+		"generator",
+		"svelte",
+		"sveltekit",
+		"component",
+		"utility"
+	],
+	"author": "snuffydev",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/node": "^16.10.2",
+		"@types/sade": "^1.7.3",
+		"nodemon": "^2.0.13",
+		"shx": "^0.3.3",
+		"esbuild": "latest",
+		"ts-node": "^10.2.1",
+		"typescript": "^4.4.3"
+	}
+}
