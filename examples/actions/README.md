@@ -1,8 +1,8 @@
 ### Breakdown of Actions
 
 ```
-Click    // TypeScript
+Click
 
-Tooltip  // JS
+Tooltip
 ```
 

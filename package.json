@@ -1,6 +1,6 @@
 {
 	"name": "sveltegen",
-	"version": "1.5.0",
+	"version": "1.5.1",
 	"description": "A simple component generator CLI for Svelte/SvelteKit.",
 	"main": "./dist/index.mjs",
 	"scripts": {

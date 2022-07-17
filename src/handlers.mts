@@ -100,16 +100,16 @@ export function actions(name: string, args: ActionArgs) {
     doCopy(template, path, compName, args);
 
     /// Transform
-    const newPath = join(path, compName + (args.typescript ? '.ts' : '.js'));
-    setImmediate(() => {
-
-        let file = readFileSync(newPath, { encoding: "utf-8" });
+    const newPath = join(path, compName);
+    forEach(readdirSync(path), (_name) => {
+        let _newPath = join(path, _name);
+        let file = readFileSync(_newPath, { encoding: "utf-8" });
 
         if (!args.typescript) {
             file = tsToJS(file);
         }
         file = file.replaceAll("_name", name);
-        writeFileSync(newPath, file, { encoding: "utf-8" });
+        writeFileSync(_newPath, file, { encoding: "utf-8" });
     });
 
     Logger.log(finishHandlerMsg(compName, newPath, 'action'));
